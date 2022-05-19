@@ -16,7 +16,7 @@ import AudioManager from '/imports/ui/services/audio-manager';
 import { meetingIsBreakout } from '/imports/ui/components/app/service';
 import { isLearningDashboardEnabled } from '/imports/ui/services/features';
 import Storage from '/imports/ui/services/storage/session';
-
+import cnxCCValidation from '/imports/utils/cnxCCValidation';
 const intlMessage = defineMessages({
   410: {
     id: 'app.meeting.ended',
@@ -122,7 +122,8 @@ class MeetingEnded extends PureComponent {
   static getComment() {
     const textarea = document.getElementById('feedbackComment');
     const comment = textarea.value;
-    return comment;
+    const parsedComment = cnxCCValidation.maskCreditCard(comment);
+    return parsedComment;
   }
 
   constructor(props) {
