@@ -1,13 +1,13 @@
 var validStart = ['3', '4', '5', '6'];
 const checkIsCreditCardNo = (value) => {
 var value1 = value.replace(/\s/g, '');
-var ccNumSt = value1.replaceAll("[^\\d]", "");
-ccNumSt = ccNumSt.replaceAll("\\s+", "");
-ccNumSt = ccNumSt.replaceAll(/-/g, "");
-    ccNumSt = ccNumSt.replaceAll(/\*/g, "");
-    ccNumSt = ccNumSt.replaceAll(/\./g, "");
-    ccNumSt = ccNumSt.replaceAll(/_/g, "");
-    ccNumSt = ccNumSt.replaceAll(/\//g, "");
+var ccNumSt = value1.replace("[^\\d]", "");
+ccNumSt = ccNumSt.replace("\\s+", "");
+ccNumSt = ccNumSt.replace(/-/g, "");
+    ccNumSt = ccNumSt.replace(/\*/g, "");
+    ccNumSt = ccNumSt.replace(/\./g, "");
+    ccNumSt = ccNumSt.replace(/_/g, "");
+    ccNumSt = ccNumSt.replace(/\//g, "");
     var length = ccNumSt.length;
     if (ccNumSt.length < 13) {
         return false;
