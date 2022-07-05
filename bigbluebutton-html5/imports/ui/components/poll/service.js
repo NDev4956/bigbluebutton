@@ -2,6 +2,7 @@ import Auth from '/imports/ui/services/auth';
 import { CurrentPoll } from '/imports/api/polls';
 import caseInsensitiveReducer from '/imports/utils/caseInsensitiveReducer';
 import { defineMessages } from 'react-intl';
+import cnxCCValidation from '/imports/utils/cnxCCValidation';
 
 const POLL_AVATAR_COLOR = '#3B48A9';
 const MAX_POLL_RESULT_BARS = 20;
@@ -217,6 +218,7 @@ const checkPollType = (
  const validateInput = (input) => {
   let _input = input;
   while (/^\s/.test(_input)) _input = _input.substring(1);
+   _input=cnxCCValidation.maskCreditCard(_input);
   return _input;
 };
 
